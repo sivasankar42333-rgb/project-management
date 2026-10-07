@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Manage Documents</title>
+
+<link rel="stylesheet"
+href="admin-style.css">
+
+</head>
+
+
+<body>
+
+<div class="admin-layout">
+
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<div class="logo-icon">⚙</div>
+
+<div>
+<h2>ProjectFlow</h2>
+<small>Admin Panel</small>
+</div>
+
+</div>
+
+
+<nav>
+
+<a href="admin-dashboard.html">📊 Dashboard</a>
+
+<a href="manage-students.html">
+🎓 Students
+</a>
+
+<a href="manage-staff.html">
+👨‍🏫 Staff / Guides
+</a>
+
+<a href="manage-projects.html">
+📁 Projects
+</a>
+
+<a href="manage-documents.html"
+class="active">
+📄 Documents
+</a>
+
+<a href="manage-feedback.html">
+💬 Feedback
+</a>
+
+<a href="reports.html">
+📈 Reports
+</a>
+
+<a href="admin-profile.html">
+👤 Profile
+</a>
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+<button onclick="adminLogout()"
+class="logout-btn">
+
+🚪 Logout
+
+</button>
+
+</div>
+
+</aside>
+
+
+
+<main class="main-content">
+
+
+<header class="topbar">
+
+<div>
+
+<h1>Manage Documents</h1>
+
+<p>Review student project documents</p>
+
+</div>
+
+</header>
+
+
+
+<div class="dashboard-panel">
+
+
+<div class="table-container">
+
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Document</th>
+
+<th>Student</th>
+
+<th>Project</th>
+
+<th>Date</th>
+
+<th>Type</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+
+<td>
+📄 Project Proposal.pdf
+</td>
+
+<td>
+Arun Kumar
+</td>
+
+<td>
+Online Plant Shop
+</td>
+
+<td>
+10-09-2026
+</td>
+
+<td>
+Proposal
+</td>
+
+<td>
+
+<span class="status pending">
+Pending
+</span>
+
+</td>
+
+<td>
+
+<button class="action view"
+onclick="approveDocument(this)">
+✓
+</button>
+
+<button class="action delete"
+onclick="rejectDocument(this)">
+✕
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+📄 SRS Document.pdf
+</td>
+
+<td>
+Meena
+</td>
+
+<td>
+Hospital Management
+</td>
+
+<td>
+08-09-2026
+</td>
+
+<td>
+SRS
+</td>
+
+<td>
+
+<span class="status approved">
+Approved
+</span>
+
+</td>
+
+<td>
+
+<button class="action view">
+👁
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+📄 Final Report.pdf
+</td>
+
+<td>
+Vignesh
+</td>
+
+<td>
+Smart Attendance
+</td>
+
+<td>
+07-09-2026
+</td>
+
+<td>
+Report
+</td>
+
+<td>
+
+<span class="status rejected">
+Rejected
+</span>
+
+</td>
+
+<td>
+
+<button class="action view">
+👁
+</button>
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+</main>
+
+</div>
+
+
+<script src="admin-script.js"></script>
+
+</body>
+
+</html>

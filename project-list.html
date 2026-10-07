@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Projects</title>
+    <link rel="stylesheet" href="staff-style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar blue-sidebar">
+
+    <div class="brand">🎓 <span>Guide Portal</span></div>
+
+    <nav>
+        <a href="staff-dashboard.html">📊 Dashboard</a>
+        <a href="staff-profile.html">👤 My Profile</a>
+        <a href="student-list.html">👨‍🎓 Students</a>
+        <a href="project-list.html" class="active">📁 Projects</a>
+        <a href="project-review.html">✅ Project Review</a>
+        <a href="document-review.html">📄 Documents</a>
+        <a href="give-feedback.html">💬 Feedback</a>
+        <a href="project-status-update.html">🔄 Status Update</a>
+    </nav>
+
+    <button onclick="staffLogout()" class="logout-btn">🚪 Logout</button>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+    <div>
+        <h2>Student Projects</h2>
+        <p>Monitor all assigned projects</p>
+    </div>
+</header>
+
+
+<div class="filter-row">
+
+    <input type="text"
+           id="projectSearch"
+           placeholder="🔍 Search project..."
+           onkeyup="searchProjects()">
+
+    <select id="projectFilter"
+            onchange="filterProjects()">
+
+        <option value="all">All Status</option>
+        <option value="Pending">Pending</option>
+        <option value="Review">Review</option>
+        <option value="Approved">Approved</option>
+        <option value="Rejected">Rejected</option>
+
+    </select>
+
+</div>
+
+
+<section class="project-grid" id="projectGrid">
+
+<div class="project-card">
+
+    <div class="project-top">
+        <span class="project-icon">💻</span>
+        <span class="badge pending">Pending</span>
+    </div>
+
+    <h2>Online Project Management System</h2>
+
+    <p class="project-student">
+        👨‍🎓 Arun Kumar
+    </p>
+
+    <p>
+        A web-based system to manage academic projects,
+        students, guides and project progress.
+    </p>
+
+    <div class="project-footer">
+        <span>📅 12 Sep 2026</span>
+        <a href="project-review.html" class="small-btn">
+            Review
+        </a>
+    </div>
+
+</div>
+
+
+<div class="project-card">
+
+    <div class="project-top">
+        <span class="project-icon">🌱</span>
+        <span class="badge review">Review</span>
+    </div>
+
+    <h2>GreenPlant Store</h2>
+
+    <p class="project-student">
+        👨‍🎓 Rahul S
+    </p>
+
+    <p>
+        Online plant shopping system with product,
+        cart and order management.
+    </p>
+
+    <div class="project-footer">
+        <span>📅 10 Sep 2026</span>
+        <a href="project-review.html" class="small-btn">
+            Review
+        </a>
+    </div>
+
+</div>
+
+
+<div class="project-card">
+
+    <div class="project-top">
+        <span class="project-icon">🏫</span>
+        <span class="badge approved">Approved</span>
+    </div>
+
+    <h2>Smart College Management</h2>
+
+    <p class="project-student">
+        👩‍🎓 Priya Kumar
+    </p>
+
+    <p>
+        Digital platform for managing college students,
+        faculty and academic information.
+    </p>
+
+    <div class="project-footer">
+        <span>📅 08 Sep 2026</span>
+        <a href="project-review.html" class="small-btn">
+            Review
+        </a>
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="staff-script.js"></script>
+
+</body>
+</html>

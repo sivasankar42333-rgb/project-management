@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Review</title>
+    <link rel="stylesheet" href="staff-style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar orange-sidebar">
+
+    <div class="brand">🎓 <span>Guide Portal</span></div>
+
+    <nav>
+        <a href="staff-dashboard.html">📊 Dashboard</a>
+        <a href="staff-profile.html">👤 My Profile</a>
+        <a href="student-list.html">👨‍🎓 Students</a>
+        <a href="project-list.html">📁 Projects</a>
+        <a href="project-review.html" class="active">✅ Project Review</a>
+        <a href="document-review.html">📄 Documents</a>
+        <a href="give-feedback.html">💬 Feedback</a>
+        <a href="project-status-update.html">🔄 Status Update</a>
+    </nav>
+
+    <button onclick="staffLogout()" class="logout-btn">🚪 Logout</button>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+
+    <div>
+        <h2>Project Review</h2>
+        <p>Review and evaluate student projects</p>
+    </div>
+
+</header>
+
+
+<section class="review-layout">
+
+<div class="review-project">
+
+    <div class="review-icon">
+        💻
+    </div>
+
+    <h1>Online Project Management System</h1>
+
+    <div class="student-info">
+        <b>Student:</b> Arun Kumar<br>
+        <b>Department:</b> Computer Science<br>
+        <b>Project Type:</b> Final Year Project
+    </div>
+
+    <hr>
+
+    <h3>Project Description</h3>
+
+    <p>
+        The Online Project Management System is a web-based
+        application designed to manage final year projects.
+        Students can submit projects and documents while
+        guides can review, provide feedback and track project
+        progress.
+    </p>
+
+    <h3>Technology Stack</h3>
+
+    <div class="tech-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Java</span>
+        <span>Spring Boot</span>
+        <span>MySQL</span>
+    </div>
+
+</div>
+
+
+<div class="review-form">
+
+    <h2>Guide Decision</h2>
+
+    <label>Review Status</label>
+
+    <select id="reviewStatus">
+        <option value="Pending">Pending</option>
+        <option value="Review">Need Changes</option>
+        <option value="Approved">Approve</option>
+        <option value="Rejected">Reject</option>
+    </select>
+
+
+    <label>Guide Remarks</label>
+
+    <textarea id="reviewRemarks"
+              placeholder="Enter your review comments..."></textarea>
+
+
+    <button onclick="saveProjectReview()"
+            class="btn approve-btn">
+        ✓ Approve Project
+    </button>
+
+    <button onclick="rejectProject()"
+            class="btn reject-btn">
+        ✕ Reject Project
+    </button>
+
+    <p id="reviewMessage"></p>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="staff-script.js"></script>
+
+</body>
+</html>

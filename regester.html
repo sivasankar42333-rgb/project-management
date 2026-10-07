@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | FYP Portal</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f3fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 950px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 18px;
+            padding: 35px 45px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        /* HEADER */
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .brand-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            background: #9148dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+        }
+
+        .header h1 {
+            color: #211337;
+            font-size: 27px;
+        }
+
+        .header p {
+            color: #777;
+            margin-top: 4px;
+            font-size: 14px;
+        }
+
+
+        /* ROLE SELECT */
+
+        .role-box {
+            background: #f7f2ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .role-box label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .role-select {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #d7c9e8;
+            border-radius: 8px;
+            padding: 0 14px;
+            font-size: 14px;
+            outline: none;
+            background: white;
+        }
+
+        .role-select:focus {
+            border-color: #9148dc;
+        }
+
+
+        /* PROGRESS */
+
+        .progress {
+            width: 100%;
+            height: 6px;
+            background: #eee;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 33%;
+            height: 100%;
+            background: #9148dc;
+            transition: 0.3s;
+        }
+
+
+        /* FORM SECTION */
+
+        .form-section {
+            padding: 22px;
+            background: #faf9fc;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #9148dc;
+        }
+
+        .form-section h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2d1944;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            height: 44px;
+            border: 1px solid #d8d4df;
+            border-radius: 7px;
+            padding: 0 12px;
+            outline: none;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #9148dc;
+            box-shadow: 0 0 0 3px rgba(145,72,220,.08);
+        }
+
+
+        /* HIDE */
+
+        .hidden {
+            display: none;
+        }
+
+
+        /* TERMS */
+
+        .terms {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            margin: 15px 0 20px;
+            color: #555;
+        }
+
+
+        /* BUTTON */
+
+        .register-btn {
+            width: 100%;
+            height: 48px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg,#7139a5,#9148dc);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            opacity: .9;
+        }
+
+
+        /* LOGIN */
+
+        .bottom-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .bottom-link a {
+            color: #7b3bb8;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+
+        /* MESSAGE */
+
+        #message {
+            display: none;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+
+        @media(max-width:700px) {
+
+            .container {
+                width: 95%;
+                padding: 25px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="brand-icon">
+            🎓
+        </div>
+
+        <div>
+
+            <h1>Create Account</h1>
+
+            <p>
+                Create your FYP Portal account
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ROLE -->
+
+    <div class="role-box">
+
+        <label>
+            Select Account Type
+        </label>
+
+        <select
+            id="role"
+            class="role-select"
+            onchange="changeRole()"
+        >
+
+            <option value="">
+                Select Account Type
+            </option>
+
+            <option value="student">
+                🎓 Student Account
+            </option>
+
+            <option value="staff">
+                👨‍🏫 Staff / Guide Account
+            </option>
+
+            <option value="admin">
+                ⚙️ Admin Account
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress">
+
+        <div
+            class="progress-fill"
+            id="progressFill"
+        ></div>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div id="message"></div>
+
+
+    <form id="registerForm">
+
+
+        <!-- ================= STUDENT ================= -->
+
+        <div
+            id="studentSection"
+            class="hidden"
+        >
+
+            <div class="form-section">
+
+                <h2>
+                    👤 Student Information
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Register Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentRegNo"
+                            placeholder="Enter register number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter full name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="studentEmail"
+                            placeholder="student@gmail.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="studentPhone"
+                            placeholder="Enter phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Department
+                        </label>
+
+                        <select id="studentDepartment">
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option>BCA</option>
+                            <option>B.Sc Computer Science</option>
+                            <option>B.Sc IT</option>
+                            <option>B.Tech IT</option>
+                            <option>B.E CSE</option>
+                            <option>MCA</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Year
+                        </label>
+
+                        <select id="studentYear">
+
+                            <option value="">
+                                Select Year
+                            </option>
+
+                            <option>III Year</option>
+                            <option>Final Year</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= STAFF ================= -->
+
+        <div
+            id="staffSection"
+            class="hidden"
+        >
+
+            <div class="form-section">
+
+                <h2>
+                    👨‍🏫 Staff / Guide Information
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Staff ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="staffId"
+                            placeholder="Enter staff ID"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="staffName"
+                            placeholder="Enter staff name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="staffEmail"
+                            placeholder="staff@gmail.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="staffPhone"
+                            placeholder="Enter phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Department
+                        </label>
+
+                        <select id="staffDepartment">
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option>Computer Science</option>
+                            <option>Information Technology</option>
+                            <option>Computer Applications</option>
+                            <option>Management</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Designation
+                        </label>
+
+                        <select id="designation">
+
+                            <option value="">
+                                Select Designation
+                            </option>
+
+                            <option>Assistant Professor</option>
+                            <option>Associate Professor</option>
+                            <option>Professor</option>
+                            <option>Project Guide</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ADMIN ================= -->
+
+        <div
+            id="adminSection"
+            class="hidden"
+        >
+
+            <div class="form-section">
+
+                <h2>
+                    ⚙️ Administrator Information
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Admin ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="adminId"
+                            placeholder="Enter admin ID"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="adminName"
+                            placeholder="Enter admin name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="adminEmail"
+                            placeholder="admin@gmail.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="adminPhone"
+                            placeholder="Enter phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Admin Department
+                        </label>
+
+                        <input
+                            type="text"
+                            id="adminDepartment"
+                            placeholder="Enter department"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SECURITY ================= -->
+
+        <div
+            id="securitySection"
+            class="form-section hidden"
+        >
+
+            <h2>
+                🔐 Account Security
+            </h2>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create password"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm password"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TERMS -->
+
+        <label
+            class="terms hidden"
+            id="terms"
+        >
+
+            <input
+                type="checkbox"
+                id="termsCheck"
+            >
+
+            I agree to the terms and conditions
+
+        </label>
+
+
+        <!-- BUTTON -->
+
+        <button
+            type="submit"
+            class="register-btn hidden"
+            id="createButton"
+        >
+
+            Create Account 🚀
+
+        </button>
+
+
+    </form>
+
+
+    <p class="bottom-link">
+
+        Already have an account?
+
+        <a href="login.html">
+            Login here
+        </a>
+
+    </p>
+
+
+</div>
+
+
+
+<script>
+
+/* ================= CHANGE ROLE ================= */
+
+function changeRole() {
+
+    const role =
+        document.getElementById("role").value;
+
+
+    const student =
+        document.getElementById("studentSection");
+
+    const staff =
+        document.getElementById("staffSection");
+
+    const admin =
+        document.getElementById("adminSection");
+
+    const security =
+        document.getElementById("securitySection");
+
+    const terms =
+        document.getElementById("terms");
+
+    const button =
+        document.getElementById("createButton");
+
+    const progress =
+        document.getElementById("progressFill");
+
+
+    /* HIDE ALL */
+
+    student.classList.add("hidden");
+
+    staff.classList.add("hidden");
+
+    admin.classList.add("hidden");
+
+    security.classList.add("hidden");
+
+    terms.classList.add("hidden");
+
+    button.classList.add("hidden");
+
+
+    /* NO ROLE */
+
+    if (role === "") {
+
+        progress.style.width = "33%";
+
+        return;
+    }
+
+
+    /* SHOW ROLE */
+
+    if (role === "student") {
+
+        student.classList.remove("hidden");
+
+        progress.style.width = "66%";
+
+    }
+
+
+    else if (role === "staff") {
+
+        staff.classList.remove("hidden");
+
+        progress.style.width = "66%";
+
+    }
+
+
+    else if (role === "admin") {
+
+        admin.classList.remove("hidden");
+
+        progress.style.width = "66%";
+
+    }
+
+
+    /* SHOW SECURITY */
+
+    security.classList.remove("hidden");
+
+    terms.classList.remove("hidden");
+
+    button.classList.remove("hidden");
+
+    progress.style.width = "100%";
+
+}
+
+
+/* ================= FORM SUBMIT ================= */
+
+document
+.getElementById("registerForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const role =
+        document.getElementById("role").value;
+
+
+    const password =
+        document.getElementById("password").value;
+
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+
+    const terms =
+        document.getElementById("termsCheck").checked;
+
+
+    /* ROLE CHECK */
+
+    if (role === "") {
+
+        showMessage(
+            "Please select account type."
+        );
+
+        return;
+    }
+
+
+    /* PASSWORD CHECK */
+
+    if (password.length < 6) {
+
+        showMessage(
+            "Password must contain at least 6 characters."
+        );
+
+        return;
+    }
+
+
+    /* CONFIRM PASSWORD */
+
+    if (password !== confirmPassword) {
+
+        showMessage(
+            "Password and confirm password do not match."
+        );
+
+        return;
+    }
+
+
+    /* TERMS */
+
+    if (!terms) {
+
+        showMessage(
+            "Please accept the terms and conditions."
+        );
+
+        return;
+    }
+
+
+    /* SAVE ACCOUNT */
+
+    let account = {
+
+        role: role,
+
+        createdAt:
+            new Date().toLocaleString()
+
+    };
+
+
+    /* STUDENT */
+
+    if (role === "student") {
+
+        account.registerNumber =
+            document.getElementById("studentRegNo").value;
+
+        account.name =
+            document.getElementById("studentName").value;
+
+        account.email =
+            document.getElementById("studentEmail").value;
+
+        account.phone =
+            document.getElementById("studentPhone").value;
+
+        account.department =
+            document.getElementById("studentDepartment").value;
+
+        account.year =
+            document.getElementById("studentYear").value;
+
+    }
+
+
+    /* STAFF */
+
+    if (role === "staff") {
+
+        account.staffId =
+            document.getElementById("staffId").value;
+
+        account.name =
+            document.getElementById("staffName").value;
+
+        account.email =
+            document.getElementById("staffEmail").value;
+
+        account.phone =
+            document.getElementById("staffPhone").value;
+
+        account.department =
+            document.getElementById("staffDepartment").value;
+
+        account.designation =
+            document.getElementById("designation").value;
+
+    }
+
+
+    /* ADMIN */
+
+    if (role === "admin") {
+
+        account.adminId =
+            document.getElementById("adminId").value;
+
+        account.name =
+            document.getElementById("adminName").value;
+
+        account.email =
+            document.getElementById("adminEmail").value;
+
+        account.phone =
+            document.getElementById("adminPhone").value;
+
+        account.department =
+            document.getElementById("adminDepartment").value;
+
+    }
+
+
+    /* SAVE TO LOCAL STORAGE */
+
+    let accounts =
+        JSON.parse(
+            localStorage.getItem("accounts")
+        ) || [];
+
+
+    accounts.push(account);
+
+
+    localStorage.setItem(
+        "accounts",
+        JSON.stringify(accounts)
+    );
+
+
+    /* SUCCESS */
+
+    showSuccess(
+        "Account created successfully!"
+    );
+
+
+    setTimeout(function() {
+
+        window.location.href =
+            "login.html";
+
+    }, 1500);
+
+});
+
+
+/* ================= MESSAGE ================= */
+
+function showMessage(text) {
+
+    const message =
+        document.getElementById("message");
+
+    message.style.display = "block";
+
+    message.style.background = "#ffe5e5";
+
+    message.style.color = "#d62828";
+
+    message.innerText = text;
+
+}
+
+
+/* ================= SUCCESS ================= */
+
+function showSuccess(text) {
+
+    const message =
+        document.getElementById("message");
+
+    message.style.display = "block";
+
+    message.style.background = "#e5f8ed";
+
+    message.style.color = "#07864b";
+
+    message.innerText = text;
+
+}
+
+</script>
+
+
+</body>
+</html>

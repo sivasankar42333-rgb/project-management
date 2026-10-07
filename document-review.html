@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Review</title>
+    <link rel="stylesheet" href="staff-style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar green-sidebar">
+
+    <div class="brand">🎓 <span>Guide Portal</span></div>
+
+    <nav>
+        <a href="staff-dashboard.html">📊 Dashboard</a>
+        <a href="staff-profile.html">👤 My Profile</a>
+        <a href="student-list.html">👨‍🎓 Students</a>
+        <a href="project-list.html">📁 Projects</a>
+        <a href="project-review.html">✅ Project Review</a>
+        <a href="document-review.html" class="active">📄 Documents</a>
+        <a href="give-feedback.html">💬 Feedback</a>
+        <a href="project-status-update.html">🔄 Status Update</a>
+    </nav>
+
+    <button onclick="staffLogout()" class="logout-btn">🚪 Logout</button>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+
+    <div>
+        <h2>Document Review</h2>
+        <p>Check student project documents</p>
+    </div>
+
+</header>
+
+
+<section class="document-container">
+
+<div class="document-card">
+
+    <div class="document-icon">
+        📕
+    </div>
+
+    <div class="document-details">
+        <h2>Project Report.pdf</h2>
+        <p>👨‍🎓 Arun Kumar</p>
+        <small>Uploaded: 12 September 2026</small>
+    </div>
+
+    <span class="badge pending">Pending</span>
+
+    <div class="document-actions">
+        <button class="small-btn"
+                onclick="viewDocument('Project Report.pdf')">
+            👁 View
+        </button>
+
+        <button class="approve-small"
+                onclick="approveDocument(this)">
+            ✓ Approve
+        </button>
+
+        <button class="reject-small"
+                onclick="rejectDocument(this)">
+            ✕ Reject
+        </button>
+    </div>
+
+</div>
+
+
+<div class="document-card">
+
+    <div class="document-icon">
+        📘
+    </div>
+
+    <div class="document-details">
+        <h2>Project Proposal.pdf</h2>
+        <p>👩‍🎓 Priya Kumar</p>
+        <small>Uploaded: 10 September 2026</small>
+    </div>
+
+    <span class="badge approved">Approved</span>
+
+    <div class="document-actions">
+        <button class="small-btn"
+                onclick="viewDocument('Project Proposal.pdf')">
+            👁 View
+        </button>
+    </div>
+
+</div>
+
+
+<div class="document-card">
+
+    <div class="document-icon">
+        📗
+    </div>
+
+    <div class="document-details">
+        <h2>System Design.pdf</h2>
+        <p>👨‍🎓 Rahul S</p>
+        <small>Uploaded: 08 September 2026</small>
+    </div>
+
+    <span class="badge review">Review</span>
+
+    <div class="document-actions">
+        <button class="small-btn"
+                onclick="viewDocument('System Design.pdf')">
+            👁 View
+        </button>
+
+        <button class="approve-small"
+                onclick="approveDocument(this)">
+            ✓ Approve
+        </button>
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="staff-script.js"></script>
+
+</body>
+</html>

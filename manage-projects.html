@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Manage Projects</title>
+
+<link rel="stylesheet" href="admin-style.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<div class="logo-icon">⚙</div>
+
+<div>
+<h2>ProjectFlow</h2>
+<small>Admin Panel</small>
+</div>
+
+</div>
+
+<nav>
+
+<a href="admin-dashboard.html">📊 Dashboard</a>
+<a href="manage-students.html">🎓 Students</a>
+<a href="manage-staff.html">👨‍🏫 Staff / Guides</a>
+<a href="manage-projects.html" class="active">📁 Projects</a>
+<a href="manage-documents.html">📄 Documents</a>
+<a href="manage-feedback.html">💬 Feedback</a>
+<a href="reports.html">📈 Reports</a>
+<a href="admin-profile.html">👤 Profile</a>
+
+</nav>
+
+<div class="sidebar-bottom">
+
+<button onclick="adminLogout()"
+class="logout-btn">
+
+🚪 Logout
+
+</button>
+
+</div>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+
+<div>
+
+<h1>Manage Projects</h1>
+
+<p>Monitor and control student projects</p>
+
+</div>
+
+</header>
+
+
+<div class="toolbar">
+
+<div class="search-box">
+
+🔍
+
+<input type="text"
+placeholder="Search project..."
+onkeyup="searchTable(this, 'projectTable')">
+
+</div>
+
+
+<select class="filter-select">
+
+<option>All Projects</option>
+
+<option>Pending</option>
+
+<option>Approved</option>
+
+<option>In Progress</option>
+
+<option>Completed</option>
+
+</select>
+
+</div>
+
+
+<div class="dashboard-panel">
+
+<div class="table-container">
+
+<table id="projectTable">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Project Title</th>
+<th>Student</th>
+<th>Guide</th>
+<th>Start Date</th>
+<th>Progress</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>PR001</td>
+
+<td>
+<b>Online Plant Shop</b>
+</td>
+
+<td>Arun Kumar</td>
+
+<td>Dr. Priya</td>
+
+<td>01-08-2026</td>
+
+<td>
+
+<div class="small-progress">
+
+<div style="width:70%"></div>
+
+</div>
+
+70%
+
+</td>
+
+<td>
+
+<span class="status progress">
+In Progress
+</span>
+
+</td>
+
+<td>
+
+<button class="action view">
+👁
+</button>
+
+<button class="action edit">
+✏
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>PR002</td>
+
+<td>
+<b>Hospital Management</b>
+</td>
+
+<td>Meena</td>
+
+<td>Mr. Raj</td>
+
+<td>03-08-2026</td>
+
+<td>
+
+<div class="small-progress">
+
+<div style="width:100%"></div>
+
+</div>
+
+100%
+
+</td>
+
+<td>
+
+<span class="status approved">
+Completed
+</span>
+
+</td>
+
+<td>
+
+<button class="action view">
+👁
+</button>
+
+<button class="action edit">
+✏
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>PR003</td>
+
+<td>
+<b>Smart Attendance</b>
+</td>
+
+<td>Vignesh</td>
+
+<td>Dr. Kumar</td>
+
+<td>05-08-2026</td>
+
+<td>
+
+<div class="small-progress">
+
+<div style="width:30%"></div>
+
+</div>
+
+30%
+
+</td>
+
+<td>
+
+<span class="status pending">
+Pending
+</span>
+
+</td>
+
+<td>
+
+<button class="action view">
+👁
+</button>
+
+<button class="action edit">
+✏
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="admin-script.js"></script>
+
+</body>
+</html>

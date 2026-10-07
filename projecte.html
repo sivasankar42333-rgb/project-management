@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ProjectFlow - Manage Projects</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6fb;
+    color: #111827;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: linear-gradient(180deg, #19112f, #281548);
+    color: white;
+}
+
+/* Logo */
+
+.logo {
+    height: 92px;
+    padding: 23px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    background: #9148dc;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.logo h2 {
+    font-size: 20px;
+}
+
+.logo p {
+    font-size: 12px;
+    color: #ddd;
+    margin-top: 2px;
+}
+
+/* Navigation */
+
+.nav {
+    padding: 22px 12px;
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    color: #fff;
+    padding: 13px 17px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    background: rgba(145,72,220,0.4);
+}
+
+.nav a.active {
+    background: #9148dc;
+}
+
+/* Logout */
+
+.logout {
+    position: absolute;
+    bottom: 17px;
+    left: 18px;
+    right: 18px;
+}
+
+.logout a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.logout a:hover {
+    background: #9148dc;
+}
+
+
+/* ================= MAIN ================= */
+
+.main {
+    margin-left: 250px;
+    min-height: 100vh;
+    padding: 27px 30px;
+}
+
+/* Heading */
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #718096;
+    font-size: 16px;
+}
+
+
+/* ================= SEARCH ================= */
+
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    width: 350px;
+    height: 46px;
+    background: white;
+    border: 1px solid #d9d9df;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.search-box span {
+    font-size: 19px;
+    margin-right: 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.filter-select {
+    width: 180px;
+    height: 46px;
+    border: 1px solid #d9d9df;
+    background: white;
+    border-radius: 10px;
+    padding: 0 18px;
+    font-size: 14px;
+    outline: none;
+}
+
+
+/* ================= TABLE CARD ================= */
+
+.project-container {
+    background: white;
+    border-radius: 17px;
+    padding: 22px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+
+thead {
+    background: #f7f7fa;
+}
+
+th {
+    text-align: left;
+    padding: 14px 13px;
+    color: #596273;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+td {
+    padding: 18px 13px;
+    border-bottom: 1px solid #eeeeef;
+    font-size: 13px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.project-id {
+    color: #2057a7;
+}
+
+.project-title {
+    font-weight: bold;
+}
+
+.student,
+.guide {
+    color: #111827;
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress-area {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.progress-bar {
+    width: 70px;
+    height: 7px;
+    background: #e8e8eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #8240c9;
+    border-radius: 10px;
+}
+
+.progress-text {
+    font-size: 12px;
+}
+
+
+/* ================= STATUS ================= */
+
+.status {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.in-progress {
+    background: #e5efff;
+    color: #2663c7;
+}
+
+.completed {
+    background: #ddf8eb;
+    color: #07945c;
+}
+
+.pending {
+    background: #fff0d6;
+    color: #ed7900;
+}
+
+
+/* ================= ACTION ================= */
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 34px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #e7f3fc;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.action-btn:hover {
+    background: #d7eafa;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main {
+        margin-left: 210px;
+        padding: 20px;
+    }
+
+    .search-box {
+        width: 280px;
+    }
+}
+
+@media(max-width: 650px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .logout {
+        position: relative;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px 18px 18px;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .search-box,
+    .filter-select {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ⚙
+        </div>
+
+        <div>
+            <h2>ProjectFlow</h2>
+            <p>Admin Panel</p>
+        </div>
+
+    </div>
+
+
+    <div class="nav">
+
+        <a href="project.html">
+           project
+        </a>
+
+        <a href="documents.html">
+            document
+        </a>
+
+       
+
+        <a href="reports.html">
+            💬 report
+        </a>
+
+        <a href="status.html">
+            📈 status
+        </a>
+
+        <a href="profile.html">
+            👤 Profile
+        </a>
+
+    </div>
+
+
+    <div class="logout">
+
+        <a href="login.html">
+            🚪 Logout
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<div class="main">
+
+    <div class="header">
+
+        <h1>Manage Projects</h1>
+
+        <p>
+            Monitor and control student projects
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="filters">
+
+        <div class="search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search project..."
+                onkeyup="searchProjects()"
+            >
+
+        </div>
+
+
+        <select
+            class="filter-select"
+            id="statusFilter"
+            onchange="filterProjects()"
+        >
+
+            <option value="all">All Projects</option>
+
+            <option value="In Progress">
+                In Progress
+            </option>
+
+            <option value="Completed">
+                Completed
+            </option>
+
+            <option value="Pending">
+                Pending
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- PROJECT TABLE -->
+
+    <div class="project-container">
+
+        <table id="projectTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>PROJECT TITLE</th>
+
+                    <th>STUDENT</th>
+
+                    <th>GUIDE</th>
+
+                    <th>START DATE</th>
+
+                    <th>PROGRESS</th>
+
+                    <th>STATUS</th>
+
+                    <th>ACTION</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <!-- PROJECT 1 -->
+
+                <tr>
+
+                    <td class="project-id">
+                        PR001
+                    </td>
+
+                    <td class="project-title">
+                        Online Plant Shop
+                    </td>
+
+                    <td class="student">
+                        Arun Kumar
+                    </td>
+
+                    <td class="guide">
+                        Dr. Priya
+                    </td>
+
+                    <td>
+                        01-08-2026
+                    </td>
+
+                    <td>
+
+                        <div class="progress-area">
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill"
+                                    style="width:70%"
+                                ></div>
+
+                            </div>
+
+                            <span class="progress-text">
+                                70%
+                            </span>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+
+                        <span class="status in-progress">
+                            In Progress
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <div class="actions">
+
+                            <button
+                                class="action-btn"
+                                onclick="viewProject('PR001')"
+                            >
+                                👁
+                            </button>
+
+                            <button
+                                class="action-btn"
+                                onclick="editProject('PR001')"
+                            >
+                                ✏
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- PROJECT 2 -->
+
+                <tr>
+
+                    <td class="project-id">
+                        PR002
+                    </td>
+
+                    <td class="project-title">
+                        Hospital Management
+                    </td>
+
+                    <td class="student">
+                        Meena
+                    </td>
+
+                    <td class="guide">
+                        Mr. Raj
+                    </td>
+
+                    <td>
+                        03-08-2026
+                    </td>
+
+                    <td>
+
+                        <div class="progress-area">
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill"
+                                    style="width:100%"
+                                ></div>
+
+                            </div>
+
+                            <span class="progress-text">
+                                100%
+                            </span>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <div class="actions">
+
+                            <button
+                                class="action-btn"
+                                onclick="viewProject('PR002')"
+                            >
+                                👁
+                            </button>
+
+                            <button
+                                class="action-btn"
+                                onclick="editProject('PR002')"
+                            >
+                                ✏
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- PROJECT 3 -->
+
+                <tr>
+
+                    <td class="project-id">
+                        PR003
+                    </td>
+
+                    <td class="project-title">
+                        Smart Attendance
+                    </td>
+
+                    <td class="student">
+                        Vignesh
+                    </td>
+
+                    <td class="guide">
+                        Dr. Kumar
+                    </td>
+
+                    <td>
+                        05-08-2026
+                    </td>
+
+                    <td>
+
+                        <div class="progress-area">
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill"
+                                    style="width:30%"
+                                ></div>
+
+                            </div>
+
+                            <span class="progress-text">
+                                30%
+                            </span>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+
+                        <span class="status pending">
+                            Pending
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <div class="actions">
+
+                            <button
+                                class="action-btn"
+                                onclick="viewProject('PR003')"
+                            >
+                                👁
+                            </button>
+
+                            <button
+                                class="action-btn"
+                                onclick="editProject('PR003')"
+                            >
+                                ✏
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ================= SEARCH ================= */
+
+function searchProjects() {
+
+    let input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let rows =
+        document.querySelectorAll("#projectTable tbody tr");
+
+    rows.forEach(function(row) {
+
+        let text =
+            row.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+
+            row.style.display = "";
+
+        } else {
+
+            row.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* ================= FILTER ================= */
+
+function filterProjects() {
+
+    let filter =
+        document.getElementById("statusFilter").value;
+
+    let rows =
+        document.querySelectorAll("#projectTable tbody tr");
+
+    rows.forEach(function(row) {
+
+        let status =
+            row.querySelector(".status").innerText.trim();
+
+        if (
+            filter === "all" ||
+            status === filter
+        ) {
+
+            row.style.display = "";
+
+        } else {
+
+            row.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* ================= VIEW ================= */
+
+function viewProject(id) {
+
+    alert("Viewing Project: " + id);
+
+}
+
+
+/* ================= EDIT ================= */
+
+function editProject(id) {
+
+    alert("Edit Project: " + id);
+
+}
+
+</script>
+
+</body>
+</html>

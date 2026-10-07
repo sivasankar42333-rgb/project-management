@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        <div class="logo-icon">⚙</div>
+        <div>
+            <h2>ProjectFlow</h2>
+            <small>Admin Panel</small>
+        </div>
+    </div>
+
+    <nav>
+
+        <a href="admin-dashboard.html">📊 Dashboard</a>
+        <a href="manage-students.html">🎓 Students</a>
+        <a href="manage-staff.html">👨‍🏫 Staff / Guides</a>
+        <a href="manage-projects.html">📁 Projects</a>
+        <a href="manage-documents.html">📄 Documents</a>
+        <a href="manage-feedback.html">💬 Feedback</a>
+        <a href="reports.html">📈 Reports</a>
+        <a href="admin-profile.html" class="active">👤 Profile</a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+        <button onclick="adminLogout()" class="logout-btn">
+            🚪 Logout
+        </button>
+    </div>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+
+    <div>
+        <h1>Admin Profile</h1>
+        <p>Manage administrator information</p>
+    </div>
+
+</header>
+
+
+<div class="profile-page">
+
+    <div class="profile-cover">
+
+        <div class="profile-avatar">
+            A
+        </div>
+
+        <div>
+            <h2>Administrator</h2>
+            <p>System Administrator</p>
+        </div>
+
+    </div>
+
+
+    <div class="profile-card">
+
+        <h2>Personal Information</h2>
+
+        <form onsubmit="updateAdminProfile(event)">
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text"
+                           value="Administrator"
+                           id="profileName">
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email"
+                           value="admin@gmail.com"
+                           id="profileEmail">
+                </div>
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="tel"
+                           value="9876543210">
+                </div>
+
+                <div class="input-group">
+                    <label>Role</label>
+                    <input type="text"
+                           value="Super Administrator"
+                           readonly>
+                </div>
+
+            </div>
+
+            <button class="primary-btn">
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="profile-card">
+
+        <h2>Change Password</h2>
+
+        <form onsubmit="changeAdminPassword(event)">
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Current Password</label>
+                    <input type="password" required>
+                </div>
+
+                <div class="input-group">
+                    <label>New Password</label>
+                    <input type="password" required>
+                </div>
+
+            </div>
+
+            <button class="dark-btn">
+                Change Password
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="admin-script.js"></script>
+
+</body>
+</html>

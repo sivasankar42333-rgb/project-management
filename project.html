@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Project | FYP Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="project-page">
+
+<header class="top-header project-header">
+
+    <div class="header-logo">
+        🚀 FYP Project Submission
+    </div>
+
+    <a class="back-link" href="student-profile.html">
+        ← Dashboard
+    </a>
+
+</header>
+
+<main class="submission-container">
+
+    <div class="submission-heading">
+
+        <div>
+            <span>PROJECT MANAGEMENT</span>
+            <h1>Submit Your Project</h1>
+            <p>Complete the project proposal details below.</p>
+        </div>
+
+        <div class="step-number">
+            STEP <strong>01</strong> / 03
+        </div>
+
+    </div>
+
+    <div class="submission-layout">
+
+        <div class="submission-info">
+
+            <div class="info-icon">💡</div>
+
+            <h2>Project Proposal</h2>
+
+            <p>
+                Submit your final year project proposal.
+                Your guide will review the information
+                before approval.
+            </p>
+
+            <div class="proposal-tips">
+
+                <div>
+                    <b>01</b>
+                    Choose a clear project title
+                </div>
+
+                <div>
+                    <b>02</b>
+                    Select your project domain
+                </div>
+
+                <div>
+                    <b>03</b>
+                    Explain your project idea
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="submission-form">
+
+            <form id="projectForm">
+
+                <label>Project Title *</label>
+
+                <input type="text"
+                       id="projectTitle"
+                       placeholder="Example: Online Project Management System"
+                       required>
+
+                <label>Project Domain *</label>
+
+                <select id="projectDomain" required>
+                    <option value="">Choose Domain</option>
+                    <option>Web Development</option>
+                    <option>Mobile Application</option>
+                    <option>Artificial Intelligence</option>
+                    <option>Machine Learning</option>
+                    <option>Data Science</option>
+                    <option>Cyber Security</option>
+                    <option>Internet of Things</option>
+                    <option>Cloud Computing</option>
+                </select>
+
+                <label>Project Abstract *</label>
+
+                <textarea id="projectAbstract"
+                          placeholder="Describe your project idea, objectives and expected outcome..."
+                          required></textarea>
+
+                <label>Choose Guide *</label>
+
+                <select id="guideName" required>
+                    <option value="">Select Guide</option>
+                    <option>Dr. Priya</option>
+                    <option>Dr. Kumar</option>
+                    <option>Dr. Suresh</option>
+                    <option>Mrs. Kavitha</option>
+                </select>
+
+               
+
+                <button class="submit-project-btn" type="submit">
+                    Submit Project Proposal 🚀
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

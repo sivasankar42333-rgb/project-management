@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="staff-style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            🎓 <span>Guide Portal</span>
+        </div>
+
+        <nav>
+            <a href="staff-dashboard.html" class="active">📊 Dashboard</a>
+            <a href="staff-profile.html">👤 My Profile</a>
+            <a href="student-list.html">👨‍🎓 Students</a>
+            <a href="project-list.html">📁 Projects</a>
+            <a href="project-review.html">✅ Project Review</a>
+            <a href="document-review.html">📄 Documents</a>
+            <a href="give-feedback.html">💬 Feedback</a>
+            <a href="project-status-update.html">🔄 Status Update</a>
+        </nav>
+
+        <button onclick="staffLogout()" class="logout-btn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h2>Staff Dashboard</h2>
+                <p>Welcome back, Guide 👋</p>
+            </div>
+
+            <div class="staff-avatar">
+                DP
+            </div>
+        </header>
+
+
+        <section class="welcome-box">
+            <div>
+                <h1>Good Morning, Dr. Priya!</h1>
+                <p>
+                    Manage your students and monitor their project progress
+                    from one place.
+                </p>
+            </div>
+
+            <div class="welcome-icon">
+                🎓
+            </div>
+        </section>
+
+
+        <section class="stats-grid">
+
+            <div class="stat-card purple">
+                <div class="stat-icon">👨‍🎓</div>
+                <div>
+                    <h3 id="studentCount">0</h3>
+                    <p>Students</p>
+                </div>
+            </div>
+
+            <div class="stat-card blue">
+                <div class="stat-icon">📁</div>
+                <div>
+                    <h3 id="projectCount">0</h3>
+                    <p>Total Projects</p>
+                </div>
+            </div>
+
+            <div class="stat-card orange">
+                <div class="stat-icon">⏳</div>
+                <div>
+                    <h3 id="pendingCount">0</h3>
+                    <p>Pending Review</p>
+                </div>
+            </div>
+
+            <div class="stat-card green">
+                <div class="stat-icon">✅</div>
+                <div>
+                    <h3 id="approvedCount">0</h3>
+                    <p>Approved</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-grid">
+
+            <div class="panel">
+
+                <div class="panel-title">
+                    <h2>Recent Projects</h2>
+                    <a href="project-list.html">View All</a>
+                </div>
+
+                <div id="recentProjects"></div>
+
+            </div>
+
+
+            <div class="panel quick-panel">
+
+                <h2>Quick Actions</h2>
+
+                <a href="student-list.html" class="quick-action">
+                    👨‍🎓
+                    <span>
+                        <b>View Students</b>
+                        <small>Check assigned students</small>
+                    </span>
+                </a>
+
+                <a href="project-review.html" class="quick-action">
+                    📋
+                    <span>
+                        <b>Review Projects</b>
+                        <small>Approve or reject projects</small>
+                    </span>
+                </a>
+
+                <a href="document-review.html" class="quick-action">
+                    📄
+                    <span>
+                        <b>Review Documents</b>
+                        <small>Check submitted files</small>
+                    </span>
+                </a>
+
+                <a href="give-feedback.html" class="quick-action">
+                    💬
+                    <span>
+                        <b>Give Feedback</b>
+                        <small>Send feedback to students</small>
+                    </span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="staff-script.js"></script>
+
+<script>
+    loadDashboard();
+</script>
+
+</body>
+</html>

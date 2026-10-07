@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | FYP Portal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f5f3fa;
+        }
+
+        .login-wrapper {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* LEFT SIDE */
+
+        .login-left {
+            width: 50%;
+            background: linear-gradient(135deg, #211337, #4b2375, #7139a5);
+            color: white;
+            padding: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 45px;
+        }
+
+        .brand-icon {
+            width: 55px;
+            height: 55px;
+            background: #9148dc;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+        }
+
+        .brand h1 {
+            font-size: 30px;
+        }
+
+        .login-left h2 {
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .login-left h2 span {
+            color: #c78cff;
+        }
+
+        .login-left > p {
+            max-width: 500px;
+            color: #ddd2e9;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .login-features {
+            margin-top: 28px;
+        }
+
+        .login-features div {
+            margin-bottom: 14px;
+        }
+
+        /* RIGHT SIDE */
+
+        .login-right {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .login-card {
+            width: 430px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 40px rgba(40, 20, 70, 0.10);
+        }
+
+        .login-icon {
+            width: 60px;
+            height: 60px;
+            background: #f0e4ff;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .login-card h2 {
+            color: #211337;
+            font-size: 27px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+
+        /* INPUT */
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            height: 46px;
+            padding: 0 13px;
+            border: 1px solid #d8d4df;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            background: white;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #9148dc;
+            box-shadow: 0 0 0 3px rgba(145, 72, 220, 0.10);
+        }
+
+        /* OPTIONS */
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0 20px;
+            font-size: 13px;
+        }
+
+        .login-options a {
+            color: #7b3bb8;
+            text-decoration: none;
+        }
+
+        /* BUTTON */
+
+        .gradient-btn {
+            width: 100%;
+            height: 46px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #7139a5, #9148dc);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .gradient-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* MESSAGE */
+
+        #message {
+            display: none;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* REGISTER */
+
+        .register-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .register-text a {
+            color: #7b3bb8;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 850px) {
+
+            .login-wrapper {
+                flex-direction: column;
+            }
+
+            .login-left {
+                width: 100%;
+                padding: 40px;
+            }
+
+            .login-left h2 {
+                font-size: 32px;
+            }
+
+            .login-right {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="login-wrapper">
+
+    <!-- LEFT SIDE -->
+
+    <div class="login-left">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🎓
+            </div>
+
+            <h1>FYP Portal</h1>
+
+        </div>
+
+
+        <h2>
+            Manage Your<br>
+            <span>Final Year Project</span>
+        </h2>
+
+
+        <p>
+            Submit your project, communicate with your guide,
+            upload documents and track your project progress.
+        </p>
+
+
+        <div class="login-features">
+
+            <div>✓ Project Submission</div>
+            <div>✓ Document Management</div>
+            <div>✓ Guide Feedback</div>
+            <div>✓ Project Tracking</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="login-right">
+
+        <div class="login-card">
+
+            <div class="login-icon">
+                👨‍🎓
+            </div>
+
+
+            <h2>
+                Welcome Back!
+            </h2>
+
+            <p class="subtitle">
+                Login to your account
+            </p>
+
+
+            <!-- MESSAGE -->
+
+            <div id="message"></div>
+
+
+            <form id="loginForm">
+
+                <!-- ROLE -->
+
+                <div class="input-group">
+
+                    <label>Login As</label>
+
+                    <select id="role" required>
+
+                        <option value="">
+                            Select Role
+                        </option>
+
+                        <option value="student">
+                            🎓 Student
+                        </option>
+
+                        <option value="staff">
+                            👨‍🏫 Staff / Guide
+                        </option>
+
+                        <option value="admin">
+                            ⚙️ Admin
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- OPTIONS -->
+
+                <div class="login-options">
+
+                    <label>
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="gradient-btn"
+                >
+                    Login →
+                </button>
+
+            </form>
+
+
+            <p class="register-text">
+
+                Don't have an account?
+
+                <a href="regester.html">
+                    Create Account
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* LOGIN */
+
+document.getElementById("loginForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const role =
+        document.getElementById("role").value;
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value.trim();
+
+
+    /* VALIDATION */
+
+    if (role === "") {
+
+        showMessage("Please select your role.");
+
+        return;
+    }
+
+
+    if (email === "") {
+
+        showMessage("Please enter your email.");
+
+        return;
+    }
+
+
+    if (password === "") {
+
+        showMessage("Please enter your password.");
+
+        return;
+    }
+
+
+    /*
+        SAVE LOGIN INFORMATION
+    */
+
+    localStorage.setItem("userRole", role);
+
+    localStorage.setItem("userEmail", email);
+
+
+    /*
+        REDIRECT BASED ON ROLE
+    */
+
+    if (role === "student") {
+
+        window.location.href =
+            "student-dashboard.html";
+
+    }
+
+    else if (role === "staff") {
+
+        window.location.href =
+            "staff-dashboard.html";
+
+    }
+
+    else if (role === "admin") {
+
+        window.location.href =
+            "admin-dashboard.html";
+
+    }
+
+});
+
+
+/* ERROR MESSAGE */
+
+function showMessage(text) {
+
+    const message =
+        document.getElementById("message");
+
+    message.innerText = text;
+
+    message.style.display = "block";
+
+    message.style.background = "#ffe5e5";
+
+    message.style.color = "#d62828";
+}
+
+const params = new URLSearchParams(window.location.search);
+const error = params.get("error");
+
+if (error === "WrongPassword") {
+    alert("❌ Wrong Password!");
+}
+
+if (error === "UserNotFound") {
+    alert("❌ Email not found!");
+}
+
+if (error === "InvalidRole") {
+    alert("❌ Invalid user role!");
+}
+
+</script>
+
+</body>
+</html>

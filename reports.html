@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Project Reports</title>
+
+<link rel="stylesheet"
+href="admin-style.css">
+
+</head>
+
+
+<body>
+
+<div class="admin-layout">
+
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<div class="logo-icon">⚙</div>
+
+<div>
+
+<h2>ProjectFlow</h2>
+
+<small>Admin Panel</small>
+
+</div>
+
+</div>
+
+
+<nav>
+
+<a href="admin-dashboard.html">
+📊 Dashboard
+</a>
+
+<a href="manage-students.html">
+🎓 Students
+</a>
+
+<a href="manage-staff.html">
+👨‍🏫 Staff / Guides
+</a>
+
+<a href="manage-projects.html">
+📁 Projects
+</a>
+
+<a href="manage-documents.html">
+📄 Documents
+</a>
+
+<a href="manage-feedback.html">
+💬 Feedback
+</a>
+
+<a href="reports.html"
+class="active">
+📈 Reports
+</a>
+
+<a href="admin-profile.html">
+👤 Profile
+</a>
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+<button onclick="adminLogout()"
+class="logout-btn">
+
+🚪 Logout
+
+</button>
+
+</div>
+
+</aside>
+
+
+
+<main class="main-content">
+
+
+<header class="topbar">
+
+<div>
+
+<h1>Project Reports</h1>
+
+<p>Project management statistics and analytics</p>
+
+</div>
+
+
+<button class="primary-btn"
+onclick="printReport()">
+
+🖨 Print Report
+
+</button>
+
+</header>
+
+
+
+<section class="report-cards">
+
+
+<div class="report-card">
+
+<span>🎓</span>
+
+<div>
+
+<small>Total Students</small>
+
+<h2>120</h2>
+
+</div>
+
+</div>
+
+
+<div class="report-card">
+
+<span>👨‍🏫</span>
+
+<div>
+
+<small>Total Guides</small>
+
+<h2>18</h2>
+
+</div>
+
+</div>
+
+
+<div class="report-card">
+
+<span>📁</span>
+
+<div>
+
+<small>Total Projects</small>
+
+<h2>76</h2>
+
+</div>
+
+</div>
+
+
+<div class="report-card">
+
+<span>✅</span>
+
+<div>
+
+<small>Completed</small>
+
+<h2>54</h2>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+<section class="report-layout">
+
+
+<div class="dashboard-panel">
+
+<div class="panel-header">
+
+<div>
+
+<h2>Project Status</h2>
+
+<p>Current project distribution</p>
+
+</div>
+
+</div>
+
+
+<div class="chart">
+
+<div class="chart-row">
+
+<span>Completed</span>
+
+<div class="chart-bar">
+
+<div style="width:70%"></div>
+
+</div>
+
+<b>54</b>
+
+</div>
+
+
+<div class="chart-row">
+
+<span>In Progress</span>
+
+<div class="chart-bar">
+
+<div style="width:48%"></div>
+
+</div>
+
+<b>18</b>
+
+</div>
+
+
+<div class="chart-row">
+
+<span>Pending</span>
+
+<div class="chart-bar">
+
+<div style="width:25%"></div>
+
+</div>
+
+<b>14</b>
+
+</div>
+
+
+<div class="chart-row">
+
+<span>Delayed</span>
+
+<div class="chart-bar">
+
+<div style="width:15%"></div>
+
+</div>
+
+<b>8</b>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="dashboard-panel">
+
+<div class="panel-header">
+
+<div>
+
+<h2>Department Statistics</h2>
+
+<p>Projects by department</p>
+
+</div>
+
+</div>
+
+
+<div class="department-list">
+
+<div>
+
+<span>Computer Science</span>
+
+<b>28</b>
+
+</div>
+
+<div>
+
+<span>Information Technology</span>
+
+<b>21</b>
+
+</div>
+
+<div>
+
+<span>Computer Applications</span>
+
+<b>17</b>
+
+</div>
+
+<div>
+
+<span>Data Science</span>
+
+<b>10</b>
+
+</div>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+</main>
+
+</div>
+
+
+<script src="admin-script.js"></script>
+
+</body>
+
+</html>

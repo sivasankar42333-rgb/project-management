@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | FYP Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="profile-page">
+
+<header class="top-header">
+
+    <div class="header-logo">
+        🎓 FYP Portal
+    </div>
+
+    <nav>
+        <a href="student-profile.html" class="active-nav">Profile</a>
+        <a href="submit-project.html">Project</a>
+        <a href="documents.html">Documents</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="project-status.html">Status</a>
+    </nav>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</header>
+
+<main class="profile-container">
+
+    <div class="profile-title">
+        <div>
+            <span>STUDENT PORTAL</span>
+            <h1>My Profile</h1>
+            <p>Manage your personal and academic information.</p>
+        </div>
+
+        <div class="profile-badge">
+            🟢 Active Student
+        </div>
+    </div>
+
+    <div class="profile-layout">
+
+        <div class="profile-side">
+
+            <div class="avatar">👨‍🎓</div>
+
+            <h2 id="profileNameCard">Student Name</h2>
+
+            <p id="profileRegCard">Register Number</p>
+
+            <div class="student-tags">
+                <span>Final Year</span>
+                <span>Computer Science</span>
+            </div>
+
+        </div>
+
+        <div class="profile-form-card">
+
+            <h2>Personal Details</h2>
+
+            <form id="profileForm">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label>Register Number</label>
+                        <input id="profileRegNo" readonly>
+                    </div>
+
+                    <div>
+                        <label>Full Name</label>
+                        <input id="profileName" required>
+                    </div>
+
+                    <div>
+                        <label>Email</label>
+                        <input type="email" id="profileEmail" required>
+                    </div>
+
+                    <div>
+                        <label>Phone</label>
+                        <input id="profilePhone" required>
+                    </div>
+
+                    <div>
+                        <label>Department</label>
+                        <input id="profileDepartment" required>
+                    </div>
+
+                    <div>
+                        <label>Year</label>
+                        <input value="Final Year" readonly>
+                    </div>
+
+                </div>
+
+                <label>Address</label>
+
+                <textarea id="profileAddress"
+                          placeholder="Enter your address"></textarea>
+
+                <button class="save-btn" type="submit">
+                    💾 Save Changes
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

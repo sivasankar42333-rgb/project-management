@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Manage Staff</title>
+
+<link rel="stylesheet" href="admin-style.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<div class="logo-icon">⚙</div>
+
+<div>
+<h2>ProjectFlow</h2>
+<small>Admin Panel</small>
+</div>
+
+</div>
+
+<nav>
+
+<a href="admin-dashboard.html">📊 Dashboard</a>
+<a href="manage-students.html">🎓 Students</a>
+<a href="manage-staff.html" class="active">👨‍🏫 Staff / Guides</a>
+<a href="manage-projects.html">📁 Projects</a>
+<a href="manage-documents.html">📄 Documents</a>
+<a href="manage-feedback.html">💬 Feedback</a>
+<a href="reports.html">📈 Reports</a>
+<a href="admin-profile.html">👤 Profile</a>
+
+</nav>
+
+<div class="sidebar-bottom">
+
+<button onclick="adminLogout()"
+        class="logout-btn">
+🚪 Logout
+</button>
+
+</div>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+
+<div>
+
+<h1>Manage Staff</h1>
+
+<p>Manage project guides and staff</p>
+
+</div>
+
+<button class="primary-btn">
++ Add Staff
+</button>
+
+</header>
+
+
+<div class="toolbar">
+
+<div class="search-box">
+
+🔍
+
+<input type="text"
+placeholder="Search staff..."
+onkeyup="searchTable(this, 'staffTable')">
+
+</div>
+
+</div>
+
+
+<div class="dashboard-panel">
+
+<div class="table-container">
+
+<table id="staffTable">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Staff Name</th>
+<th>Email</th>
+<th>Department</th>
+<th>Projects</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>SF001</td>
+
+<td>
+<b>Dr. Priya</b>
+</td>
+
+<td>
+priya@college.edu
+</td>
+
+<td>
+Computer Science
+</td>
+
+<td>
+8 Projects
+</td>
+
+<td>
+<span class="status approved">
+Active
+</span>
+</td>
+
+<td>
+
+<button class="action edit">
+✏
+</button>
+
+<button class="action delete"
+onclick="deleteRow(this)">
+🗑
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>SF002</td>
+
+<td>
+<b>Mr. Raj</b>
+</td>
+
+<td>
+raj@college.edu
+</td>
+
+<td>
+Information Technology
+</td>
+
+<td>
+6 Projects
+</td>
+
+<td>
+<span class="status approved">
+Active
+</span>
+</td>
+
+<td>
+
+<button class="action edit">
+✏
+</button>
+
+<button class="action delete"
+onclick="deleteRow(this)">
+🗑
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>SF003</td>
+
+<td>
+<b>Dr. Kumar</b>
+</td>
+
+<td>
+kumar@college.edu
+</td>
+
+<td>
+Computer Applications
+</td>
+
+<td>
+5 Projects
+</td>
+
+<td>
+<span class="status pending">
+Inactive
+</span>
+</td>
+
+<td>
+
+<button class="action edit">
+✏
+</button>
+
+<button class="action delete"
+onclick="deleteRow(this)">
+🗑
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="admin-script.js"></script>
+
+</body>
+</html>

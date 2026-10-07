@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Status Update</title>
+    <link rel="stylesheet" href="staff-style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar violet-sidebar">
+
+    <div class="brand">🎓 <span>Guide Portal</span></div>
+
+    <nav>
+        <a href="staff-dashboard.html">📊 Dashboard</a>
+        <a href="staff-profile.html">👤 My Profile</a>
+        <a href="student-list.html">👨‍🎓 Students</a>
+        <a href="project-list.html">📁 Projects</a>
+        <a href="project-review.html">✅ Project Review</a>
+        <a href="document-review.html">📄 Documents</a>
+        <a href="give-feedback.html">💬 Feedback</a>
+        <a href="project-status-update.html" class="active">
+            🔄 Status Update
+        </a>
+    </nav>
+
+    <button onclick="staffLogout()" class="logout-btn">🚪 Logout</button>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+
+    <div>
+        <h2>Project Status Update</h2>
+        <p>Update the current project progress</p>
+    </div>
+
+</header>
+
+
+<section class="status-container">
+
+<div class="progress-header">
+
+    <div class="large-avatar">AK</div>
+
+    <div>
+        <h2>Online Project Management System</h2>
+        <p>Student: Arun Kumar</p>
+    </div>
+
+</div>
+
+
+<div class="progress-line">
+
+    <div class="progress-step completed">
+        <span>✓</span>
+        <b>Proposal</b>
+    </div>
+
+    <div class="progress-step completed">
+        <span>✓</span>
+        <b>Planning</b>
+    </div>
+
+    <div class="progress-step current">
+        <span>3</span>
+        <b>Development</b>
+    </div>
+
+    <div class="progress-step">
+        <span>4</span>
+        <b>Testing</b>
+    </div>
+
+    <div class="progress-step">
+        <span>5</span>
+        <b>Completed</b>
+    </div>
+
+</div>
+
+
+<div class="status-form">
+
+    <h2>Update Project</h2>
+
+    <label>Current Status</label>
+
+    <select id="statusSelect">
+
+        <option>Proposal</option>
+        <option>Planning</option>
+        <option selected>Development</option>
+        <option>Testing</option>
+        <option>Final Review</option>
+        <option>Completed</option>
+
+    </select>
+
+
+    <label>Progress Percentage</label>
+
+    <input type="range"
+           id="progressRange"
+           min="0"
+           max="100"
+           value="60"
+           oninput="showProgress(this.value)">
+
+    <div class="progress-value">
+        <span id="progressValue">60</span>%
+    </div>
+
+
+    <label>Guide Comment</label>
+
+    <textarea id="statusComment"
+              placeholder="Enter progress comment..."></textarea>
+
+
+    <button onclick="updateProjectStatus()"
+            class="btn violet-btn">
+        🔄 Update Status
+    </button>
+
+    <p id="statusMessage"></p>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="staff-script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documents | FYP Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="documents-page">
+
+<header class="documents-header">
+
+    <div>
+        <span>FYP DOCUMENT CENTER</span>
+
+        <h1>My Documents 📁</h1>
+    </div>
+
+    <a href="student-profile.html">Dashboard</a>
+
+</header>
+
+
+<main class="documents-container">
+
+
+    <!-- ================= UPLOAD BOX ================= -->
+
+    <div class="upload-box">
+
+        <div class="upload-icon">☁️</div>
+
+        <h2>Upload Project Document</h2>
+
+        <p>
+            Upload PDF, DOC, PPT, ZIP and other project files.
+        </p>
+
+
+        <form id="documentForm">
+
+
+            <!-- DOCUMENT TYPE -->
+
+            <select id="documentType" required>
+
+                <option value="">
+                    Select Document Type
+                </option>
+
+                <option value="Project Proposal">
+                    Project Proposal
+                </option>
+
+                <option value="Abstract">
+                    Abstract
+                </option>
+
+                <option value="SRS Document">
+                    SRS Document
+                </option>
+
+                <option value="Project Report">
+                    Project Report
+                </option>
+
+                <option value="Presentation">
+                    Presentation
+                </option>
+
+                <option value="Source Code">
+                    Source Code
+                </option>
+
+            </select>
+
+
+            <!-- CHOOSE FILE -->
+
+            <div class="file-input">
+
+                <label for="documentFile">
+
+                    📄 Choose Project File
+
+                </label>
+
+                <input
+                    type="file"
+                    id="documentFile"
+                    accept=".pdf,.doc,.docx,.ppt,.pptx,.zip,.rar"
+                >
+
+                <span id="fileName">
+                    No file chosen
+                </span>
+
+            </div>
+
+
+            <!-- OR -->
+
+            <div class="or-section">
+
+                <span>OR</span>
+
+            </div>
+
+
+            <!-- GITHUB LINK -->
+
+            <div class="github-section">
+
+                <label for="githubLink">
+
+                    🔗 GitHub Project Repository
+
+                </label>
+
+                <input
+                    type="url"
+                    id="githubLink"
+                    placeholder="https://github.com/username/project-name"
+                >
+
+                <small>
+                    Paste your GitHub repository link
+                </small>
+
+            </div>
+
+
+            <!-- UPLOAD BUTTON -->
+
+            <button type="submit">
+
+                ⬆ Upload Document
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+
+    <!-- ================= DOCUMENT LIST ================= -->
+
+    <div class="document-list">
+
+        <div class="document-list-header">
+
+            <h2>
+                Uploaded Files
+            </h2>
+
+            <span id="documentCount">
+                0 Documents
+            </span>
+
+        </div>
+
+
+        <div id="documentList">
+
+            <!-- JavaScript documents will appear here -->
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+    /* =========================================
+       FILE NAME DISPLAY
+    ========================================= */
+
+    const documentFile =
+        document.getElementById("documentFile");
+
+    const fileName =
+        document.getElementById("fileName");
+
+
+    documentFile.addEventListener("change", function () {
+
+        if (this.files.length > 0) {
+
+            fileName.textContent =
+                this.files[0].name;
+
+        } else {
+
+            fileName.textContent =
+                "No file chosen";
+
+        }
+
+    });
+
+
+
+    /* =========================================
+       DOCUMENT FORM
+    ========================================= */
+
+    const documentForm =
+        document.getElementById("documentForm");
+
+    const githubLink =
+        document.getElementById("githubLink");
+
+    const documentType =
+        document.getElementById("documentType");
+
+    const documentList =
+        document.getElementById("documentList");
+
+    const documentCount =
+        document.getElementById("documentCount");
+
+
+    let uploadedDocuments =
+        JSON.parse(
+            localStorage.getItem("fypDocuments")
+        ) || [];
+
+
+
+    /* =========================================
+       DISPLAY DOCUMENTS
+    ========================================= */
+
+    function displayDocuments() {
+
+        documentList.innerHTML = "";
+
+        documentCount.textContent =
+            uploadedDocuments.length + " Documents";
+
+
+        if (uploadedDocuments.length === 0) {
+
+            documentList.innerHTML = `
+                <div class="empty-document">
+                    📂 No documents uploaded yet.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        uploadedDocuments.forEach(function (doc, index) {
+
+            const documentCard =
+                document.createElement("div");
+
+            documentCard.className =
+                "document-card";
+
+
+            documentCard.innerHTML = `
+
+                <div class="document-icon">
+                    ${doc.type === "GitHub"
+                        ? "🔗"
+                        : "📄"}
+                </div>
+
+                <div class="document-info">
+
+                    <h3>
+                        ${doc.name}
+                    </h3>
+
+                    <p>
+                        ${doc.type}
+                    </p>
+
+                </div>
+
+
+                <div class="document-actions">
+
+                    ${
+                        doc.type === "GitHub"
+
+                        ?
+
+                        `
+                        <a
+                            href="${doc.link}"
+                            target="_blank"
+                            class="view-btn"
+                        >
+                            Open GitHub
+                        </a>
+                        `
+
+                        :
+
+                        `
+                        <span class="file-status">
+                            Uploaded
+                        </span>
+                        `
+                    }
+
+
+                    <button
+                        onclick="deleteDocument(${index})"
+                        class="delete-btn"
+                    >
+                        Delete
+                    </button>
+
+                </div>
+
+            `;
+
+
+            documentList.appendChild(
+                documentCard
+            );
+
+        });
+
+    }
+
+
+
+    /* =========================================
+       FORM SUBMIT
+    ========================================= */
+
+    documentForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const selectedType =
+                documentType.value;
+
+            const selectedFile =
+                documentFile.files[0];
+
+            const github =
+                githubLink.value.trim();
+
+
+            /* No file and no GitHub */
+
+            if (!selectedFile && !github) {
+
+                alert(
+                    "Please choose a file OR enter a GitHub link."
+                );
+
+                return;
+
+            }
+
+
+            /* Both file and GitHub */
+
+            if (selectedFile && github) {
+
+                alert(
+                    "Please upload either a file OR a GitHub link, not both."
+                );
+
+                return;
+
+            }
+
+
+            /* =================================
+               FILE UPLOAD
+            ================================= */
+
+            if (selectedFile) {
+
+                const fileData = {
+
+                    name:
+                        selectedFile.name,
+
+                    type:
+                        selectedType,
+
+                    fileType:
+                        "File",
+
+                    date:
+                        new Date().toLocaleDateString()
+
+                };
+
+
+                uploadedDocuments.push(
+                    fileData
+                );
+
+
+                localStorage.setItem(
+                    "fypDocuments",
+                    JSON.stringify(
+                        uploadedDocuments
+                    )
+                );
+
+
+                alert(
+                    "Document uploaded successfully!"
+                );
+
+            }
+
+
+            /* =================================
+               GITHUB LINK
+            ================================= */
+
+            if (github) {
+
+
+                if (
+                    !github.startsWith(
+                        "https://github.com/"
+                    )
+                ) {
+
+                    alert(
+                        "Please enter a valid GitHub repository link."
+                    );
+
+                    return;
+
+                }
+
+
+                const githubData = {
+
+                    name:
+                        "GitHub Project Repository",
+
+                    type:
+                        "GitHub",
+
+                    fileType:
+                        "GitHub",
+
+                    link:
+                        github,
+
+                    date:
+                        new Date().toLocaleDateString()
+
+                };
+
+
+                uploadedDocuments.push(
+                    githubData
+                );
+
+
+                localStorage.setItem(
+                    "fypDocuments",
+                    JSON.stringify(
+                        uploadedDocuments
+                    )
+                );
+
+
+                alert(
+                    "GitHub link added successfully!"
+                );
+
+            }
+
+
+            /* Reset form */
+
+            documentForm.reset();
+
+            fileName.textContent =
+                "No file chosen";
+
+
+            displayDocuments();
+
+        }
+    );
+
+
+
+    /* =========================================
+       DELETE DOCUMENT
+    ========================================= */
+
+    function deleteDocument(index) {
+
+        if (
+            confirm(
+                "Are you sure you want to delete this document?"
+            )
+        ) {
+
+            uploadedDocuments.splice(
+                index,
+                1
+            );
+
+
+            localStorage.setItem(
+                "fypDocuments",
+                JSON.stringify(
+                    uploadedDocuments
+                )
+            );
+
+
+            displayDocuments();
+
+        }
+
+    }
+
+
+
+    /* Initial display */
+
+    displayDocuments();
+
+</script>
+
+
+</body>
+
+</html>

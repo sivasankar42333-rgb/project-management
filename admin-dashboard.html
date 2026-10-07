@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-icon">⚙</div>
+            <div>
+                <h2>ProjectFlow</h2>
+                <small>Admin Panel</small>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="admin-dashboard.html" class="active">
+                <span>📊</span> Dashboard
+            </a>
+
+            <a href="manage-students.html">
+                <span>🎓</span> Students
+            </a>
+
+            <a href="manage-staff.html">
+                <span>👨‍🏫</span> Staff / Guides
+            </a>
+
+            <a href="manage-projects.html">
+                <span>📁</span> Projects
+            </a>
+
+            <a href="manage-documents.html">
+                <span>📄</span> Documents
+            </a>
+
+            <a href="manage-feedback.html">
+                <span>💬</span> Feedback
+            </a>
+
+            <a href="reports.html">
+                <span>📈</span> Reports
+            </a>
+
+            <a href="admin-profile.html">
+                <span>👤</span> Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button onclick="adminLogout()" class="logout-btn">
+                🚪 Logout
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Welcome back, Administrator 👋</p>
+            </div>
+
+            <div class="admin-mini">
+                <div class="notification">🔔</div>
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Super Admin</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- STAT CARDS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card purple">
+                <div class="stat-icon">🎓</div>
+                <div>
+                    <span>Total Students</span>
+                    <h2 id="studentCount">120</h2>
+                    <small>Registered students</small>
+                </div>
+            </div>
+
+            <div class="stat-card blue">
+                <div class="stat-icon">👨‍🏫</div>
+                <div>
+                    <span>Total Staff</span>
+                    <h2 id="staffCount">18</h2>
+                    <small>Project guides</small>
+                </div>
+            </div>
+
+            <div class="stat-card green">
+                <div class="stat-icon">📁</div>
+                <div>
+                    <span>Total Projects</span>
+                    <h2 id="projectCount">76</h2>
+                    <small>Current projects</small>
+                </div>
+            </div>
+
+            <div class="stat-card orange">
+                <div class="stat-icon">⏳</div>
+                <div>
+                    <span>Pending Projects</span>
+                    <h2 id="pendingCount">14</h2>
+                    <small>Need review</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- SECOND STATS -->
+
+        <section class="mini-stats">
+
+            <div>
+                <span>📄 Documents</span>
+                <strong>148</strong>
+            </div>
+
+            <div>
+                <span>💬 Feedback</span>
+                <strong>92</strong>
+            </div>
+
+            <div>
+                <span>✅ Completed</span>
+                <strong>54</strong>
+            </div>
+
+            <div>
+                <span>⚠️ Delayed</span>
+                <strong>8</strong>
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD CONTENT -->
+
+        <section class="dashboard-grid">
+
+            <div class="dashboard-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Recent Projects</h2>
+                        <p>Latest project submissions</p>
+                    </div>
+
+                    <a href="manage-projects.html">
+                        View All
+                    </a>
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>Student</th>
+                                <th>Guide</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Online Plant Shop</td>
+                                <td>Arun Kumar</td>
+                                <td>Dr. Priya</td>
+                                <td>
+                                    <span class="status pending">
+                                        Pending
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Hospital Management</td>
+                                <td>Meena</td>
+                                <td>Mr. Raj</td>
+                                <td>
+                                    <span class="status approved">
+                                        Approved
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Student Portal</td>
+                                <td>Vignesh</td>
+                                <td>Dr. Kumar</td>
+                                <td>
+                                    <span class="status progress">
+                                        In Progress
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Smart Attendance</td>
+                                <td>Divya</td>
+                                <td>Ms. Anitha</td>
+                                <td>
+                                    <span class="status rejected">
+                                        Rejected
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="dashboard-panel quick-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Quick Actions</h2>
+                        <p>Frequently used actions</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+
+                    <a href="manage-students.html">
+                        <span>➕</span>
+                        <div>
+                            <strong>Add Student</strong>
+                            <small>Register new student</small>
+                        </div>
+                    </a>
+
+                    <a href="manage-staff.html">
+                        <span>👨‍🏫</span>
+                        <div>
+                            <strong>Add Staff</strong>
+                            <small>Add project guide</small>
+                        </div>
+                    </a>
+
+                    <a href="manage-projects.html">
+                        <span>📁</span>
+                        <div>
+                            <strong>Review Projects</strong>
+                            <small>Check submissions</small>
+                        </div>
+                    </a>
+
+                    <a href="reports.html">
+                        <span>📊</span>
+                        <div>
+                            <strong>Generate Report</strong>
+                            <small>View project statistics</small>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+
+        <section class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>Project Progress</h2>
+                    <p>Overall project completion</p>
+                </div>
+
+            </div>
+
+            <div class="progress-row">
+
+                <div>
+                    <div class="progress-title">
+                        <span>Completed Projects</span>
+                        <b>71%</b>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div style="width:71%"></div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="progress-title">
+                        <span>Projects In Progress</span>
+                        <b>48%</b>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div style="width:48%"></div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="progress-title">
+                        <span>Documentation</span>
+                        <b>63%</b>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div style="width:63%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="admin-script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Students</title>
+
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        <div class="logo-icon">⚙</div>
+        <div>
+            <h2>ProjectFlow</h2>
+            <small>Admin Panel</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="admin-dashboard.html">📊 Dashboard</a>
+        <a href="manage-students.html" class="active">🎓 Students</a>
+        <a href="manage-staff.html">👨‍🏫 Staff / Guides</a>
+        <a href="manage-projects.html">📁 Projects</a>
+        <a href="manage-documents.html">📄 Documents</a>
+        <a href="manage-feedback.html">💬 Feedback</a>
+        <a href="reports.html">📈 Reports</a>
+        <a href="admin-profile.html">👤 Profile</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <button onclick="adminLogout()" class="logout-btn">
+            🚪 Logout
+        </button>
+    </div>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+
+    <div>
+        <h1>Manage Students</h1>
+        <p>View and manage registered students</p>
+    </div>
+
+    <button class="primary-btn"
+            onclick="openStudentForm()">
+        + Add Student
+    </button>
+
+</header>
+
+
+<div class="toolbar">
+
+    <div class="search-box">
+        🔍
+        <input type="text"
+               id="studentSearch"
+               placeholder="Search student..."
+               onkeyup="searchStudents()">
+    </div>
+
+    <select onchange="filterStudents(this.value)"
+            class="filter-select">
+
+        <option value="all">All Students</option>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+
+    </select>
+
+</div>
+
+
+<div class="dashboard-panel">
+
+<div class="table-container">
+
+<table id="studentTable">
+
+<thead>
+
+<tr>
+    <th>ID</th>
+    <th>Student</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>Project</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+    <td>ST001</td>
+    <td><b>Arun Kumar</b></td>
+    <td>arun@gmail.com</td>
+    <td>Computer Science</td>
+    <td>Online Plant Shop</td>
+    <td>
+        <span class="status approved">Active</span>
+    </td>
+    <td>
+        <button class="action edit">✏</button>
+        <button class="action delete"
+                onclick="deleteRow(this)">🗑</button>
+    </td>
+</tr>
+
+<tr>
+    <td>ST002</td>
+    <td><b>Meena</b></td>
+    <td>meena@gmail.com</td>
+    <td>Information Technology</td>
+    <td>Student Portal</td>
+    <td>
+        <span class="status approved">Active</span>
+    </td>
+    <td>
+        <button class="action edit">✏</button>
+        <button class="action delete"
+                onclick="deleteRow(this)">🗑</button>
+    </td>
+</tr>
+
+<tr>
+    <td>ST003</td>
+    <td><b>Vignesh</b></td>
+    <td>vignesh@gmail.com</td>
+    <td>Computer Applications</td>
+    <td>Smart Attendance</td>
+    <td>
+        <span class="status pending">Inactive</span>
+    </td>
+    <td>
+        <button class="action edit">✏</button>
+        <button class="action delete"
+                onclick="deleteRow(this)">🗑</button>
+    </td>
+</tr>
+
+<tr>
+    <td>ST004</td>
+    <td><b>Divya</b></td>
+    <td>divya@gmail.com</td>
+    <td>Computer Science</td>
+    <td>Hospital Management</td>
+    <td>
+        <span class="status approved">Active</span>
+    </td>
+    <td>
+        <button class="action edit">✏</button>
+        <button class="action delete"
+                onclick="deleteRow(this)">🗑</button>
+    </td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="admin-script.js"></script>
+
+</body>
+</html>

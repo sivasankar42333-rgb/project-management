@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Feedback</title>
+    <link rel="stylesheet" href="staff-style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar pink-sidebar">
+
+    <div class="brand">🎓 <span>Guide Portal</span></div>
+
+    <nav>
+        <a href="staff-dashboard.html">📊 Dashboard</a>
+        <a href="staff-profile.html">👤 My Profile</a>
+        <a href="student-list.html">👨‍🎓 Students</a>
+        <a href="project-list.html">📁 Projects</a>
+        <a href="project-review.html">✅ Project Review</a>
+        <a href="document-review.html">📄 Documents</a>
+        <a href="give-feedback.html" class="active">💬 Feedback</a>
+        <a href="project-status-update.html">🔄 Status Update</a>
+    </nav>
+
+    <button onclick="staffLogout()" class="logout-btn">🚪 Logout</button>
+
+</aside>
+
+
+<main class="main-content">
+
+<header class="topbar">
+
+    <div>
+        <h2>Give Feedback</h2>
+        <p>Guide your students with useful feedback</p>
+    </div>
+
+</header>
+
+
+<section class="feedback-layout">
+
+<div class="feedback-form">
+
+    <div class="feedback-heading">
+        💬
+        <div>
+            <h2>Student Feedback</h2>
+            <p>Share your suggestions and comments</p>
+        </div>
+    </div>
+
+
+    <label>Select Student</label>
+
+    <select id="feedbackStudent">
+
+        <option value="">-- Select Student --</option>
+        <option>Arun Kumar</option>
+        <option>Priya Kumar</option>
+        <option>Rahul S</option>
+
+    </select>
+
+
+    <label>Project</label>
+
+    <input type="text"
+           id="feedbackProject"
+           placeholder="Project name">
+
+
+    <label>Feedback Type</label>
+
+    <select id="feedbackType">
+
+        <option>General Feedback</option>
+        <option>Project Improvement</option>
+        <option>Document Correction</option>
+        <option>Technical Suggestion</option>
+        <option>Final Review</option>
+
+    </select>
+
+
+    <label>Feedback Message</label>
+
+    <textarea id="feedbackText"
+              placeholder="Write your feedback here..."></textarea>
+
+
+    <button onclick="submitFeedback()"
+            class="btn feedback-btn">
+        Send Feedback 💌
+    </button>
+
+    <p id="feedbackMessage"></p>
+
+</div>
+
+
+<div class="feedback-tips">
+
+    <h2>💡 Guide Tips</h2>
+
+    <div>
+        <b>01</b>
+        Give clear and constructive suggestions.
+    </div>
+
+    <div>
+        <b>02</b>
+        Mention the exact area that needs improvement.
+    </div>
+
+    <div>
+        <b>03</b>
+        Encourage students to complete tasks on time.
+    </div>
+
+    <div>
+        <b>04</b>
+        Review project progress regularly.
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="staff-script.js"></script>
+
+</body>
+</html>
